@@ -18,7 +18,7 @@
 
         public ManagerDecision Reject(string reason)
         {
-            return new Approval(employee, reason);
+            return new Refusal(employee, reason);
         }
     }
 }
