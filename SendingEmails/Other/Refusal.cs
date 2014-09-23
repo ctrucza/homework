@@ -6,6 +6,7 @@ namespace Other
     public class Refusal : ManagerDecision
     {
         private readonly Employee employee;
+
         private readonly string reason;
 
         /// <summary>
@@ -17,6 +18,8 @@ namespace Other
             this.reason = reason;
         }
 
+        private const string EmailSubject = "Nope :(";
+
         protected override MailMessage CreateEmail()
         {
             var emailWriter = new EmailWriter();
@@ -24,7 +27,7 @@ namespace Other
             var email =
                 emailWriter.SetMeAsSender()
                     .AddEmployeeAsRecipient(employee)
-                    .SetSubject("Nope :(")
+                    .SetSubject(EmailSubject)
                     .AppendToBody(reason)
                     .Email;
 

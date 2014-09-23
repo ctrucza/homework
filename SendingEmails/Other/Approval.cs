@@ -6,6 +6,7 @@ namespace Other
     public class Approval : ManagerDecision
     {
         private readonly Employee employee;
+
         private readonly string info;
 
         /// <summary>
@@ -17,6 +18,8 @@ namespace Other
             this.info = info;
         }
 
+        private const string EmailSubject = "Yee :)";
+
         protected override MailMessage CreateEmail()
         {
             var emailWriter = new EmailWriter();
@@ -24,7 +27,7 @@ namespace Other
             var email =
                 emailWriter.SetMeAsSender()
                     .AddEmployeeAsRecipient(employee)
-                    .SetSubject("Yee :)")
+                    .SetSubject(EmailSubject)
                     .AppendToBody(info)
                     .Email;
 
