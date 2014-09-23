@@ -8,13 +8,13 @@ namespace Other.Emails
         public void SendEmail(MailMessage email)
         {
             ObservedRecipient = email.To.First().Address;
-            ObserverSubject = email.Subject;
+            ObservedSubject = email.Subject;
             ObservedBody = email.Body;
         }
 
         public string ObservedRecipient { get; private set; }
 
-        public string ObserverSubject { get; private set; }
+        public string ObservedSubject { get; private set; }
 
         public string ObservedBody { get; private set; }
     }

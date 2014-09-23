@@ -22,7 +22,7 @@ namespace Other.Tests
             decision.CommunicateViaEmail(emailServiceMock);
 
             Assert.NotNull(emailServiceMock.ObservedRecipient);
-            Assert.IsNotEmpty(emailServiceMock.ObserverSubject);
+            Assert.IsNotEmpty(emailServiceMock.ObservedSubject);
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace Other.Tests
             decision.CommunicateViaEmail(emailServiceMock);
 
             Assert.NotNull(emailServiceMock.ObservedRecipient);
-            Assert.IsNotEmpty(emailServiceMock.ObserverSubject);
+            Assert.IsNotEmpty(emailServiceMock.ObservedSubject);
             Assert.True(emailServiceMock.ObservedBody.Contains(Reason));
         }
     }
