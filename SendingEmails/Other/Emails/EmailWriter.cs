@@ -57,7 +57,7 @@ namespace Other.Emails
             return this;
         }
 
-        public EmailWriter AppendBody(string content)
+        public EmailWriter AppendToBody(string content)
         {
             Email.Body += content + Environment.NewLine;
             return this;

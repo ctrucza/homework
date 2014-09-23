@@ -25,7 +25,7 @@ namespace Other
                 emailWriter.SetMeAsSender()
                     .AddEmployeeAsRecipient(employee)
                     .SetSubject("Yee :)")
-                    .AppendBody(info)
+                    .AppendToBody(info)
                     .Email;
 
             return email;

@@ -25,7 +25,7 @@ namespace Other
                 emailWriter.SetMeAsSender()
                     .AddEmployeeAsRecipient(employee)
                     .SetSubject("Nope :(")
-                    .AppendBody(reason)
+                    .AppendToBody(reason)
                     .Email;
 
             return email;
