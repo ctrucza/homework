@@ -3,12 +3,8 @@
   <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True">
+        <State expanded="True" selected="True">
           <Option id="ShowAllFiles" value="True" />
-          <Node name="Other" expanded="True">
-            <Node name="Tests" expanded="True" />
-            <Node name="packages.config" selected="True" />
-          </Node>
         </State>
       </Pad>
       <Pad Id="ClassPad">
@@ -18,15 +14,7 @@
         <State />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True">
-          <Node name="Other" expanded="True">
-            <Node name="Other" expanded="True">
-              <Node name="Tests" expanded="True">
-                <Node name="IntegrationTests" expanded="True" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
+        <State expanded="True" selected="True" />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
