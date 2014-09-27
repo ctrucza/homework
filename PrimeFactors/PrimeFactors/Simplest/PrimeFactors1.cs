@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-namespace PrimeFactorsKata
+namespace PrimeFactors.Simplest
 {
-    public class PrimeFactors
+    public class PrimeFactors1
     {
         public static List<int> Generate(int number)
         {

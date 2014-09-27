@@ -5,10 +5,10 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{14367A82-B8FF-4AA0-ABD4-B4462A4F0530}</ProjectGuid>
+    <ProjectGuid>{4FEDDE5A-3A32-46DC-A487-D9DFC7C38B1A}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Tests</RootNamespace>
-    <AssemblyName>Tests</AssemblyName>
+    <RootNamespace>PrimeFactors</RootNamespace>
+    <AssemblyName>PrimeFactors</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -30,11 +30,27 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Core" />
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PrimeFactorsFixture.cs" />
+    <Compile Include="Smelliest\Factorizer.cs" />
+    <Compile Include="Smelliest\PrimeFactors.cs" />
+    <Compile Include="PrettyDecent\Number.cs" />
+    <Compile Include="Simplest\PrimeFactors1.cs" />
+    <Compile Include="Simplest\PrimeFactors2.cs" />
+    <Compile Include="Simplest\PrimeFactors3.cs" />
+    <Compile Include="PrettyDecent\PrimeFactors.cs" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Simplest\" />
+    <Folder Include="Smelliest\" />
+    <Folder Include="PrettyDecent\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

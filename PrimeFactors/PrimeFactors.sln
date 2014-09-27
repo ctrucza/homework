@@ -1,13 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplest", "Simplest\Simplest.csproj", "{C4903036-CA37-4D3E-A693-0B87DCC5FA59}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{14367A82-B8FF-4AA0-ABD4-B4462A4F0530}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyDecent", "PrettyDecent\PrettyDecent.csproj", "{89F196A5-5C06-4C4E-B961-B5EF724A844B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smelliest", "Smelliest\Smelliest.csproj", "{8CB3F030-AB2E-4415-9776-C9359403D2FF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimeFactors", "PrimeFactors\PrimeFactors.csproj", "{4FEDDE5A-3A32-46DC-A487-D9DFC7C38B1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,24 +9,12 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{14367A82-B8FF-4AA0-ABD4-B4462A4F0530}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{14367A82-B8FF-4AA0-ABD4-B4462A4F0530}.Debug|x86.Build.0 = Debug|Any CPU
-		{14367A82-B8FF-4AA0-ABD4-B4462A4F0530}.Release|x86.ActiveCfg = Release|Any CPU
-		{14367A82-B8FF-4AA0-ABD4-B4462A4F0530}.Release|x86.Build.0 = Release|Any CPU
-		{89F196A5-5C06-4C4E-B961-B5EF724A844B}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{89F196A5-5C06-4C4E-B961-B5EF724A844B}.Debug|x86.Build.0 = Debug|Any CPU
-		{89F196A5-5C06-4C4E-B961-B5EF724A844B}.Release|x86.ActiveCfg = Release|Any CPU
-		{89F196A5-5C06-4C4E-B961-B5EF724A844B}.Release|x86.Build.0 = Release|Any CPU
-		{8CB3F030-AB2E-4415-9776-C9359403D2FF}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{8CB3F030-AB2E-4415-9776-C9359403D2FF}.Debug|x86.Build.0 = Debug|Any CPU
-		{8CB3F030-AB2E-4415-9776-C9359403D2FF}.Release|x86.ActiveCfg = Release|Any CPU
-		{8CB3F030-AB2E-4415-9776-C9359403D2FF}.Release|x86.Build.0 = Release|Any CPU
-		{C4903036-CA37-4D3E-A693-0B87DCC5FA59}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{C4903036-CA37-4D3E-A693-0B87DCC5FA59}.Debug|x86.Build.0 = Debug|Any CPU
-		{C4903036-CA37-4D3E-A693-0B87DCC5FA59}.Release|x86.ActiveCfg = Release|Any CPU
-		{C4903036-CA37-4D3E-A693-0B87DCC5FA59}.Release|x86.Build.0 = Release|Any CPU
+		{4FEDDE5A-3A32-46DC-A487-D9DFC7C38B1A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4FEDDE5A-3A32-46DC-A487-D9DFC7C38B1A}.Debug|x86.Build.0 = Debug|Any CPU
+		{4FEDDE5A-3A32-46DC-A487-D9DFC7C38B1A}.Release|x86.ActiveCfg = Release|Any CPU
+		{4FEDDE5A-3A32-46DC-A487-D9DFC7C38B1A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Simplest\Simplest.csproj
+		StartupItem = PrimeFactors\PrimeFactors.csproj
 	EndGlobalSection
 EndGlobal

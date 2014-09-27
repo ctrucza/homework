@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace PrimeFactorsKata
+namespace PrimeFactors.Smelliest
 {
     // Generic comment:
     // consider passing parameters instead of members.
