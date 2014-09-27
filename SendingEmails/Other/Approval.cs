@@ -23,6 +23,7 @@ namespace Other
             var email = new Email()
                 .SetMeAsSender()
                 .AddHumanResourcesAsRecipient()
+                .AddEmployeeAsRecipient(employee)
                 .SetSubject(EmailSubject)
                 .AppendToBody(info);               
 
