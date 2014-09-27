@@ -1,4 +1,4 @@
-﻿using System.Net.Mail;
+using System.Net.Mail;
 using Other.Emails;
 
 namespace Other
@@ -8,10 +8,10 @@ namespace Other
         /// <summary>
         /// Double-dispatch (anti-)pattern
         /// </summary>
-        public void CommunicateViaEmail(IEmailService emailService)
+        public void CommunicateViaEmail(IEmailServer emailServer)
         {
             MailMessage email = CreateEmail();
-            emailService.SendEmail(email);
+            emailServer.SendEmail(email);
         }
 
         protected abstract MailMessage CreateEmail();

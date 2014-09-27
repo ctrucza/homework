@@ -1,9 +1,9 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Net.Mail;
 
 namespace Other.Emails
 {
-    public class EmailServiceMock : IEmailService
+    public class EmailServerMock : IEmailServer
     {
         public void SendEmail(MailMessage email)
         {

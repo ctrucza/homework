@@ -2,7 +2,7 @@
 
 namespace Other.Emails
 {
-    public class DefaultEmailService : IEmailService
+    public class DefaultEmailServer : IEmailServer
     {
         public void SendEmail(MailMessage email)
         {

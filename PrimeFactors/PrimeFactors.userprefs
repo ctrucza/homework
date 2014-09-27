@@ -1,15 +1,19 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="PrimeFactors/Simplest/PrimeFactors3.cs">
+    <Files>
+      <File FileName="PrimeFactors/Simplest/PrimeFactors1.cs" Line="14" Column="18" />
+      <File FileName="PrimeFactors/Simplest/PrimeFactors2.cs" Line="28" Column="2" />
+      <File FileName="PrimeFactors/Simplest/PrimeFactors3.cs" Line="9" Column="10" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="PrimeFactors" expanded="True">
             <Node name="PrettyDecent" expanded="True" />
-            <Node name="Simplest" expanded="True">
-              <Node name="PrimeFactors1.cs" selected="True" />
-            </Node>
+            <Node name="Simplest" expanded="True" />
             <Node name="Smelliest" expanded="True" />
+            <Node name="PrimeFactorsFixture.cs" selected="True" />
           </Node>
         </State>
       </Pad>
@@ -20,11 +24,7 @@
         <State />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True" selected="True">
-          <Node name="PrimeFactors" expanded="True">
-            <Node name="PrimeFactors" expanded="True" />
-          </Node>
-        </State>
+        <State expanded="True" selected="True" />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using Other.Emails;
 
 namespace Other.Tests
@@ -9,7 +9,7 @@ namespace Other.Tests
     [TestFixture]
     public class IntegrationTests
     {
-        private readonly EmailServiceMock emailServiceMock = new EmailServiceMock();
+        private readonly EmailServerMock emailServerMock = new EmailServerMock();
 
         [Test]
         public void IsApprovalCorrectlyCommunicated()
@@ -19,10 +19,10 @@ namespace Other.Tests
             var holidayRequest = new HolidayRequest(employee, periodOfTime);
             
             var decision = holidayRequest.Approve();
-            decision.CommunicateViaEmail(emailServiceMock);
+            decision.CommunicateViaEmail(emailServerMock);
 
-            Assert.NotNull(emailServiceMock.ObservedRecipient);
-            Assert.IsNotEmpty(emailServiceMock.ObservedSubject);
+            Assert.NotNull(emailServerMock.ObservedRecipient);
+            Assert.IsNotEmpty(emailServerMock.ObservedSubject);
         }
 
         [Test]
@@ -34,11 +34,11 @@ namespace Other.Tests
             
             const string Reason = "Foo";
             var decision = holidayRequest.Reject(Reason);
-            decision.CommunicateViaEmail(emailServiceMock);
+            decision.CommunicateViaEmail(emailServerMock);
 
-            Assert.NotNull(emailServiceMock.ObservedRecipient);
-            Assert.IsNotEmpty(emailServiceMock.ObservedSubject);
-            Assert.True(emailServiceMock.ObservedBody.Contains(Reason));
+            Assert.NotNull(emailServerMock.ObservedRecipient);
+            Assert.IsNotEmpty(emailServerMock.ObservedSubject);
+            Assert.True(emailServerMock.ObservedBody.Contains(Reason));
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Other.Emails
 {
-    public interface IEmailService
+    public interface IEmailServer
     {
         void SendEmail(MailMessage email);
     }
