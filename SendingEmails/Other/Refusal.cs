@@ -1,4 +1,3 @@
-﻿using System.Net.Mail;
 using Other.Emails;
 
 namespace Other
@@ -6,7 +5,6 @@ namespace Other
     public class Refusal : ManagerDecision
     {
         private readonly Employee employee;
-
         private readonly string reason;
 
         /// <summary>
@@ -20,16 +18,13 @@ namespace Other
 
         private const string EmailSubject = "Nope :(";
 
-        protected override MailMessage CreateEmail()
+        protected override Email CreateEmail()
         {
-            var emailWriter = new EmailWriter();
-            
-            var email =
-                emailWriter.SetMeAsSender()
-                    .AddEmployeeAsRecipient(employee)
-                    .SetSubject(EmailSubject)
-                    .AppendToBody(reason)
-                    .Email;
+            var email = new Email()
+                .SetMeAsSender()
+                .AddEmployeeAsRecipient(employee)
+                .SetSubject(EmailSubject)
+                .AppendToBody(reason);    
 
             return email;
         }

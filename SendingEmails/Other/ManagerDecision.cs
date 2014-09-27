@@ -1,4 +1,3 @@
-using System.Net.Mail;
 using Other.Emails;
 
 namespace Other
@@ -10,10 +9,10 @@ namespace Other
         /// </summary>
         public void CommunicateViaEmail(IEmailServer emailServer)
         {
-            MailMessage email = CreateEmail();
+            Email email = CreateEmail();
             emailServer.SendEmail(email);
         }
 
-        protected abstract MailMessage CreateEmail();
+        protected abstract Email CreateEmail();
     }
 }

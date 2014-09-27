@@ -3,21 +3,13 @@ using System.Net.Mail;
 
 namespace Other.Emails
 {
-    /// <summary>
-    /// Aka builder :)
-    /// </summary>
-    public class EmailWriter
+    public class Email
     {
-        public EmailWriter()
-        {
-            Email = new MailMessage();
-        }
+        MailMessage mailMessage = new MailMessage();
 
-        public MailMessage Email { get; private set; }
-
-        public EmailWriter SetMeAsSender()
+        public Email SetMeAsSender()
         {
-            Email.From = GetMyAddress();
+            mailMessage.From = GetMyAddress();
             return this;
         }
 
@@ -27,9 +19,9 @@ namespace Other.Emails
             return new MailAddress("address@of.logged.in.user");
         }
 
-        public EmailWriter AddHumanResourcesAsRecipient()
+        public Email AddHumanResourcesAsRecipient()
         {
-            Email.To.Add(GetHumanResourcesAddress());
+            mailMessage.To.Add(GetHumanResourcesAddress());
             return this;
         }
 
@@ -39,9 +31,9 @@ namespace Other.Emails
             return new MailAddress("address@of.HR_HOLIDAYS.com");
         }
 
-        public EmailWriter AddEmployeeAsRecipient(Employee employee)
+        public Email AddEmployeeAsRecipient(Employee employee)
         {
-            Email.To.Add(GetEmployeeAddress(employee));
+            mailMessage.To.Add(GetEmployeeAddress(employee));
             return this;
         }
         
@@ -51,16 +43,21 @@ namespace Other.Emails
             return new MailAddress(employee + "@something.com");
         }
 
-        public EmailWriter SetSubject(string subject)
+        public Email SetSubject(string subject)
         {
-            Email.Subject = subject;
+            mailMessage.Subject = subject;
             return this;
         }
 
-        public EmailWriter AppendToBody(string content)
+        public Email AppendToBody(string content)
         {
-            Email.Body += content + Environment.NewLine;
+            mailMessage.Body += content + Environment.NewLine;
             return this;
+        }
+
+        public MailMessage AsMailMessage()
+        {
+            return mailMessage;
         }
     }
 }

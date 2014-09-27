@@ -1,12 +1,10 @@
-﻿using System.Net.Mail;
-using Other.Emails;
+﻿using Other.Emails;
 
 namespace Other
 {
     public class Approval : ManagerDecision
     {
         private readonly Employee employee;
-
         private readonly string info;
 
         /// <summary>
@@ -20,16 +18,13 @@ namespace Other
 
         private const string EmailSubject = "Yee :)";
 
-        protected override MailMessage CreateEmail()
+        protected override Email CreateEmail()
         {
-            var emailWriter = new EmailWriter();
-
-            var email =
-                emailWriter.SetMeAsSender()
-                    .AddEmployeeAsRecipient(employee)
-                    .SetSubject(EmailSubject)
-                    .AppendToBody(info)
-                    .Email;
+            var email = new Email()
+                .SetMeAsSender()
+                .AddHumanResourcesAsRecipient()
+                .SetSubject(EmailSubject)
+                .AppendToBody(info);               
 
             return email;
         }

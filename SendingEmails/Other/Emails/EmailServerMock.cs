@@ -5,11 +5,13 @@ namespace Other.Emails
 {
     public class EmailServerMock : IEmailServer
     {
-        public void SendEmail(MailMessage email)
+        public void SendEmail(Email email)
         {
-            ObservedRecipient = email.To.First().Address;
-            ObservedSubject = email.Subject;
-            ObservedBody = email.Body;
+            MailMessage mailMessage = email.AsMailMessage();
+
+            ObservedRecipient = mailMessage.To.First().Address;
+            ObservedSubject = mailMessage.Subject;
+            ObservedBody = mailMessage.Body;
         }
 
         public string ObservedRecipient { get; private set; }
