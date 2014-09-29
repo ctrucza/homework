@@ -32,38 +32,36 @@ namespace FurtherDecoupling
 
         public void Approve()
         {
-            Email email = CreateApprovalEmail();
-            email.Send();
-
+            SendApproval();
             Status = HolidayRequestStatus.Approved;
         }
 
-        private Email CreateApprovalEmail()
+        private void SendApproval()
         {
             var from = manager.EmailAddress;
             var to = Configuration.EmailAddressOfHumanResources;
             var subject = "Yee :)";
             var body = string.Format("Some info: {0}, {1}", employee, periodOfTime);
 
-            return new Email(from, to, subject, body);
+            var email = new Email(from, to, subject, body);
+            email.Send();
         }
 
         public void Reject(string reason)
         {
-            Email email = CreateRefusalEmail(reason);
-            email.Send();
-
+            SendRefusal(reason);
             Status = HolidayRequestStatus.Rejected;
         }
 
-        private Email CreateRefusalEmail(string reason)
+        private void SendRefusal(string reason)
         {
             var from = manager.EmailAddress;
             var to = employee.EmailAddress;
             var subject = "Nope :(";
             var body = reason;
-            
-            return new Email(from, to, subject, body);
+
+            var email = new Email(from, to, subject, body);
+            email.Send();
         }
     }
 }
