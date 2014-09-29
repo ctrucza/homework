@@ -20,15 +20,19 @@ namespace FurtherDecoupling
         private readonly Employee employee;
         private readonly PeriodOfTime periodOfTime;
 
-        public HolidayRequest(Manager manager, Employee employee, PeriodOfTime periodOfTime, HolidayRequestStatus status)
+        public HolidayRequest(Manager manager, Employee employee, PeriodOfTime periodOfTime)
         {
             this.manager = manager;
             this.employee = employee;
             this.periodOfTime = periodOfTime;
-            Status = status;
         }
 
         public HolidayRequestStatus Status { get; private set; }
+
+        public void SubmitForApproval()
+        {
+            Status = HolidayRequestStatus.Pending;
+        }
 
         public void Approve()
         {

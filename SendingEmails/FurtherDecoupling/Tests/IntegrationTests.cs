@@ -28,8 +28,9 @@ namespace FurtherDecoupling.Tests
             var employee = new Employee(employeeAddress);
 
             var periodOfTime = new PeriodOfTime();
-            var holidayRequest = new HolidayRequest(manager, employee, periodOfTime, HolidayRequestStatus.Pending);
-            
+            var holidayRequest = new HolidayRequest(manager, employee, periodOfTime);
+
+            holidayRequest.SubmitForApproval();
             holidayRequest.Approve();
 
             Assert.NotNull(emailServerMock.ObservedRecipient);
@@ -46,8 +47,10 @@ namespace FurtherDecoupling.Tests
             var employee = new Employee(employeeAddress);
 
             var periodOfTime = new PeriodOfTime();
-            var holidayRequest = new HolidayRequest(manager, employee, periodOfTime, HolidayRequestStatus.Pending);
-            
+            var holidayRequest = new HolidayRequest(manager, employee, periodOfTime);
+
+            holidayRequest.SubmitForApproval();
+
             const string Reason = "Foo";
             holidayRequest.Reject(Reason);
 
