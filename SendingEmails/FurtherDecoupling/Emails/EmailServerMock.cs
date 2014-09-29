@@ -7,12 +7,15 @@ namespace FurtherDecoupling.Emails
     {
         public void SendEmail(MailMessage email)
         {
-            ObservedRecipient = email.To.First().Address;
+            ObservedSender = email.From;
+            ObservedRecipient = email.To.First();
             ObservedSubject = email.Subject;
             ObservedBody = email.Body;
         }
 
-        public string ObservedRecipient { get; private set; }
+        public MailAddress ObservedSender { get; private set; }
+
+        public MailAddress ObservedRecipient { get; private set; }
 
         public string ObservedSubject { get; private set; }
 
