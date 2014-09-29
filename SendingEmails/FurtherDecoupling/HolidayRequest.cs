@@ -10,10 +10,6 @@ namespace FurtherDecoupling
         Rejected
     }
 
-    // There is one feature missing:
-    // When a new request is created, it should send an email to the manager.
-    // Different HolidayRequests go to different managers 
-    // (depending on what project the employee currently works on)
     public class HolidayRequest
     {
         private readonly Manager manager;
@@ -31,7 +27,19 @@ namespace FurtherDecoupling
 
         public void SubmitForApproval()
         {
+            AnnounceManagerAboutSubmission();
             Status = HolidayRequestStatus.Pending;
+        }
+
+        private void AnnounceManagerAboutSubmission()
+        {
+            var from = employee.EmailAddress;
+            var to = manager.EmailAddress;
+            var subject = "Please :)";
+            var body = string.Format("Some info: {0}", periodOfTime);
+            
+            var email = new Email(from, to, subject, body);
+            email.Send();
         }
 
         public void Approve()
