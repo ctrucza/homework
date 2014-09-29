@@ -12,14 +12,32 @@ namespace FurtherDecoupling.Tests
     {
         EmailServerMock emailServerMock = new EmailServerMock();
 
-        private readonly MailAddress managerAddress = new MailAddress("test@test.org");
+        readonly MailAddress managerAddress = new MailAddress("test@test.org");
 
-        private readonly MailAddress employeeAddress = new MailAddress("test@test.com");
+        readonly MailAddress employeeAddress = new MailAddress("test@test.com");
+
+        readonly MailAddress hrAddress = Configuration.EmailAddressOfHumanResources;
 
         [SetUp]
         public void SetUpTest()
         {
             EmailServerLocator.Instance = emailServerMock;
+        }
+
+        [Test]
+        public void CanCorrectlySubmitARequest()
+        {
+            var manager = new Manager(managerAddress);
+            var employee = new Employee(employeeAddress);
+            
+            var periodOfTime = new PeriodOfTime();
+            var holidayRequest = new HolidayRequest(manager, employee, periodOfTime);
+
+            holidayRequest.SubmitForApproval();
+
+            Assert.AreEqual(HolidayRequestStatus.Pending, holidayRequest.Status);
+            Assert.AreEqual(employeeAddress, emailServerMock.ObservedSender);
+            Assert.AreEqual(managerAddress, emailServerMock.ObservedRecipient);
         }
 
         [Test]
@@ -34,8 +52,9 @@ namespace FurtherDecoupling.Tests
             holidayRequest.SubmitForApproval();
             holidayRequest.Approve();
 
-            Assert.NotNull(emailServerMock.ObservedRecipient);
-            Assert.IsNotEmpty(emailServerMock.ObservedSubject);
+            Assert.AreEqual(HolidayRequestStatus.Approved, holidayRequest.Status);
+            Assert.AreEqual(managerAddress, emailServerMock.ObservedSender);
+            Assert.AreEqual(hrAddress, emailServerMock.ObservedRecipient);
         }
 
         [Test]
@@ -52,8 +71,9 @@ namespace FurtherDecoupling.Tests
             const string Reason = "Foo";
             holidayRequest.Reject("Foo");
 
-            Assert.NotNull(emailServerMock.ObservedRecipient);
-            Assert.IsNotEmpty(emailServerMock.ObservedSubject);
+            Assert.AreEqual(HolidayRequestStatus.Rejected, holidayRequest.Status);
+            Assert.AreEqual(managerAddress, emailServerMock.ObservedSender);
+            Assert.AreEqual(employeeAddress, emailServerMock.ObservedRecipient);
             Assert.True(emailServerMock.ObservedBody.Contains(Reason));
         }
     }
