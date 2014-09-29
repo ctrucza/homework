@@ -42,7 +42,7 @@ namespace FurtherDecoupling
         {
             var addressbook = AddressbookLocator.Instance;
 
-            var from = addressbook.GetMyAddress();
+            var from = manager.EmailAddress;
             var to = addressbook.GetAddressOfHumanResources();
             var subject = "Yee :)";
             var body = string.Format("Some info: {0}, {1}", employee, periodOfTime);
@@ -60,10 +60,8 @@ namespace FurtherDecoupling
 
         private Email CreateRefusalEmail(string reason)
         {
-            var addressbook = AddressbookLocator.Instance;
-
-            var from = addressbook.GetMyAddress();
-            var to = addressbook.GetAddressOfEmployee(employee);
+            var from = manager.EmailAddress;
+            var to = employee.EmailAddress;
             var subject = "Nope :(";
             var body = reason;
             
