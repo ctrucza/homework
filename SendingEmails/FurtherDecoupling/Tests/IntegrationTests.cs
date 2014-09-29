@@ -10,12 +10,9 @@ namespace FurtherDecoupling.Tests
     [TestFixture]
     public class IntegrationTests
     {
-        EmailServerMock emailServerMock = new EmailServerMock();
-
+        readonly EmailServerMock emailServerMock = new EmailServerMock();
         readonly MailAddress managerAddress = new MailAddress("test@test.org");
-
         readonly MailAddress employeeAddress = new MailAddress("test@test.com");
-
         readonly MailAddress hrAddress = Configuration.EmailAddressOfHumanResources;
 
         [SetUp]

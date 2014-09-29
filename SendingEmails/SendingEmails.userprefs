@@ -1,31 +1,21 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Simplified/Contacts/Addressbook.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FurtherDecoupling/HolidayRequest.cs">
     <Files>
-      <File FileName="Other/Emails/DefaultEmailServer.cs" Line="10" Column="14" />
-      <File FileName="Other/Emails/IEmailServer.cs" Line="1" Column="1" />
-      <File FileName="Other/Emails/EmailServerMock.cs" Line="12" Column="64" />
-      <File FileName="Other/ManagerDecision.cs" Line="1" Column="1" />
-      <File FileName="Other/Tests/IntegrationTests.cs" Line="25" Column="64" />
-      <File FileName="Other/Approval.cs" Line="26" Column="50" />
-      <File FileName="Other/Refusal.cs" Line="27" Column="17" />
-      <File FileName="Simplified/Emails/EmailServer.cs" Line="8" Column="30" />
-      <File FileName="Simplified/Employee.cs" Line="1" Column="21" />
-      <File FileName="Simplified/PeriodOfTime.cs" Line="1" Column="21" />
-      <File FileName="Simplified/Contacts/Addressbook.cs" Line="13" Column="6" />
-      <File FileName="Simplified/Contacts/AddressbookMock.cs" Line="1" Column="1" />
-      <File FileName="Simplified/Contacts/DefaultAddressbook.cs" Line="16" Column="27" />
-      <File FileName="Simplified/Emails/EmailServerMock.cs" Line="13" Column="10" />
-      <File FileName="Simplified/Tests/IntegrationTests.cs" Line="38" Column="10" />
-      <File FileName="Simplified/HolidayRequest.cs" Line="5" Column="2" />
-      <File FileName="Simplified/ServiceLocators.cs" Line="12" Column="43" />
+      <File FileName="FurtherDecoupling/Emails/DefaultEmailServer.cs" Line="3" Column="28" />
+      <File FileName="FurtherDecoupling/Emails/Email.cs" Line="9" Column="1" />
+      <File FileName="FurtherDecoupling/Emails/EmailServer.cs" Line="4" Column="28" />
+      <File FileName="FurtherDecoupling/Emails/EmailServerMock.cs" Line="13" Column="39" />
+      <File FileName="FurtherDecoupling/Tests/IntegrationTests.cs" Line="14" Column="9" />
+      <File FileName="FurtherDecoupling/HolidayRequest.cs" Line="11" Column="5" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True" selected="True">
-          <Node name="Other" expanded="True">
+        <State expanded="True">
+          <Node name="FurtherDecoupling" expanded="True">
             <Node name="Emails" expanded="True" />
             <Node name="Tests" expanded="True" />
+            <Node name="HolidayRequest.cs" selected="True" />
           </Node>
           <Node name="Simplified" expanded="True">
             <Node name="Contacts" expanded="True" />
@@ -41,9 +31,7 @@
         <State />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True" selected="True">
-          <Node name="Simplified" expanded="True" />
-        </State>
+        <State expanded="True" selected="True" />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
