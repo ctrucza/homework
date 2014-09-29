@@ -5,12 +5,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Other", "Other\Other.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplified", "Simplified\Simplified.csproj", "{B5FEAF47-9DB0-44DB-BD83-26C0E36BB0C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FurtherDecoupling", "FurtherDecoupling\FurtherDecoupling.csproj", "{A4083FCF-DE1E-4800-9891-881F6DC665A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4083FCF-DE1E-4800-9891-881F6DC665A6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A4083FCF-DE1E-4800-9891-881F6DC665A6}.Debug|x86.Build.0 = Debug|Any CPU
+		{A4083FCF-DE1E-4800-9891-881F6DC665A6}.Release|x86.ActiveCfg = Release|Any CPU
+		{A4083FCF-DE1E-4800-9891-881F6DC665A6}.Release|x86.Build.0 = Release|Any CPU
 		{B5FEAF47-9DB0-44DB-BD83-26C0E36BB0C7}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{B5FEAF47-9DB0-44DB-BD83-26C0E36BB0C7}.Debug|x86.Build.0 = Debug|Any CPU
 		{B5FEAF47-9DB0-44DB-BD83-26C0E36BB0C7}.Release|x86.ActiveCfg = Release|Any CPU
