@@ -12,6 +12,10 @@ namespace FurtherDecoupling.Tests
     {
         EmailServerMock emailServerMock = new EmailServerMock();
 
+        private readonly MailAddress managerAddress = new MailAddress("test@test.org");
+
+        private readonly MailAddress employeeAddress = new MailAddress("test@test.com");
+
         [SetUp]
         public void SetUpTest()
         {
@@ -21,10 +25,7 @@ namespace FurtherDecoupling.Tests
         [Test]
         public void IsApprovalCorrectlyCommunicated()
         {
-            var managerAddress = new MailAddress("test@test.org");
             var manager = new Manager(managerAddress);
-
-            var employeeAddress = new MailAddress("test@test.com");
             var employee = new Employee(employeeAddress);
 
             var periodOfTime = new PeriodOfTime();
@@ -40,10 +41,7 @@ namespace FurtherDecoupling.Tests
         [Test]
         public void IsRejectionCorrectlyCommunicated()
         {
-            var managerAddress = new MailAddress("test@test.org");
             var manager = new Manager(managerAddress);
-
-            var employeeAddress = new MailAddress("test@test.com");
             var employee = new Employee(employeeAddress);
 
             var periodOfTime = new PeriodOfTime();
@@ -52,7 +50,7 @@ namespace FurtherDecoupling.Tests
             holidayRequest.SubmitForApproval();
 
             const string Reason = "Foo";
-            holidayRequest.Reject(Reason);
+            holidayRequest.Reject("Foo");
 
             Assert.NotNull(emailServerMock.ObservedRecipient);
             Assert.IsNotEmpty(emailServerMock.ObservedSubject);
