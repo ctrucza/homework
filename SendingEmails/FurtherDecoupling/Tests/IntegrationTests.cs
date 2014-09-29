@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using FurtherDecoupling.Emails;
+using System.Net.Mail;
 
 namespace FurtherDecoupling.Tests
 {
@@ -23,7 +24,8 @@ namespace FurtherDecoupling.Tests
         [Test]
         public void IsApprovalCorrectlyCommunicated()
         {
-            var employee = new Employee();
+            var employeeAddress = new MailAddress("test@test.com");
+            var employee = new Employee(employeeAddress);
             var periodOfTime = new PeriodOfTime();
             var holidayRequest = new HolidayRequest(employee, periodOfTime, HolidayRequestStatus.Pending);
             
@@ -36,7 +38,8 @@ namespace FurtherDecoupling.Tests
         [Test]
         public void IsRejectionCorrectlyCommunicated()
         {
-            var employee = new Employee();
+            var employeeAddress = new MailAddress("test@test.com");
+            var employee = new Employee(employeeAddress);
             var periodOfTime = new PeriodOfTime();
             var holidayRequest = new HolidayRequest(employee, periodOfTime, HolidayRequestStatus.Pending);
             
