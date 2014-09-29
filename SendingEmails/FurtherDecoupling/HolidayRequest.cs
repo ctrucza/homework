@@ -18,62 +18,54 @@ namespace FurtherDecoupling
     {
         private readonly Employee employee;
         private readonly PeriodOfTime periodOfTime;
-        // HolidayRequest depending on EmailServer is weird.
-        // I would create an Email class (from, to, subject, body) with a method Send()
-        private readonly EmailServer emailServer;
-        // You don't really need an addressbook:
-        // A HolidayRequest has 2 properties: 
-        //      - Employee and Manager. They noth have email addresses.
-        //      - there is only one HR email, best kept in the app configuration
-        private readonly Addressbook addressbook;
 
         public HolidayRequest(Employee employee, PeriodOfTime periodOfTime, HolidayRequestStatus status)
         {
             this.employee = employee;
             this.periodOfTime = periodOfTime;
             Status = status;
-
-            // If you extract an Email class and use the Employee, Manager and app config (as above)
-            // you don't need these services here.
-            emailServer = EmailServerLocator.Instance;
-            addressbook = AddressbookLocator.Instance;
         }
 
         public HolidayRequestStatus Status { get; private set; }
 
         public void Approve()
         {
-            // My take woud be:
-            // Email email = new Email(manager.email, hr.email, "Approval", CreateApprovalBody());
-            // email.Send();
-            emailServer.SendEmail(CreateApprovalEmail());
+            Email email = CreateApprovalEmail();
+            email.Send();
+
             Status = HolidayRequestStatus.Approved;
         }
 
-        private MailMessage CreateApprovalEmail()
+        private Email CreateApprovalEmail()
         {
+            var addressbook = AddressbookLocator.Instance;
+
             var from = addressbook.GetMyAddress();
             var to = addressbook.GetAddressOfHumanResources();
             var subject = "Yee :)";
             var body = string.Format("Some info: {0}, {1}", employee, periodOfTime);
 
-            return new MailMessage(from, to) { Subject = subject, Body = body };
+            return new Email(from, to, subject, body);
         }
 
         public void Reject(string reason)
         {
-            emailServer.SendEmail(CreateRefusalEmail(reason));
+            Email email = CreateRefusalEmail(reason);
+            email.Send();
+
             Status = HolidayRequestStatus.Rejected;
         }
 
-        private MailMessage CreateRefusalEmail(string reason)
+        private Email CreateRefusalEmail(string reason)
         {
+            var addressbook = AddressbookLocator.Instance;
+
             var from = addressbook.GetMyAddress();
             var to = addressbook.GetAddressOfEmployee(employee);
             var subject = "Nope :(";
             var body = reason;
             
-            return new MailMessage(from, to) { Subject = subject, Body = body };
+            return new Email(from, to, subject, body);
         }
     }
 }
