@@ -12,12 +12,9 @@ namespace FurtherDecoupling.Tests
     {
         EmailServerMock emailServerMock = new EmailServerMock();
 
-        AddressbookMock addressbookMock = new AddressbookMock();
-
         [SetUp]
         public void SetUpTest()
         {
-            AddressbookLocator.Instance = addressbookMock;
             EmailServerLocator.Instance = emailServerMock;
         }
 

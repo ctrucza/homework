@@ -40,10 +40,8 @@ namespace FurtherDecoupling
 
         private Email CreateApprovalEmail()
         {
-            var addressbook = AddressbookLocator.Instance;
-
             var from = manager.EmailAddress;
-            var to = addressbook.GetAddressOfHumanResources();
+            var to = Configuration.EmailAddressOfHumanResources;
             var subject = "Yee :)";
             var body = string.Format("Some info: {0}, {1}", employee, periodOfTime);
 

@@ -43,14 +43,12 @@
     <Compile Include="HolidayRequest.cs" />
     <Compile Include="PeriodOfTime.cs" />
     <Compile Include="ServiceLocators.cs" />
-    <Compile Include="Contacts\Addressbook.cs" />
-    <Compile Include="Contacts\AddressbookMock.cs" />
-    <Compile Include="Contacts\DefaultAddressbook.cs" />
     <Compile Include="Emails\EmailServerMock.cs" />
     <Compile Include="Emails\DefaultEmailServer.cs" />
     <Compile Include="Emails\EmailServer.cs" />
     <Compile Include="Tests\IntegrationTests.cs" />
     <Compile Include="Emails\Email.cs" />
     <Compile Include="Manager.cs" />
+    <Compile Include="Configuration.cs" />
   </ItemGroup>
 </Project>

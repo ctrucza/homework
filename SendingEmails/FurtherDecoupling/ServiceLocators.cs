@@ -6,10 +6,5 @@ namespace FurtherDecoupling
     {
         public static EmailServer Instance = new DefaultEmailServer();
     }
-
-    public static class AddressbookLocator
-    {
-        public static Addressbook Instance = new DefaultAddressbook();
-    }
 }
 
