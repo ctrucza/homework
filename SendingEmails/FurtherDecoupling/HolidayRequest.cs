@@ -26,8 +26,15 @@ namespace FurtherDecoupling
 
         public void SubmitForApproval()
         {
+            SaveInStorage();
             InformManagerAboutSubmission();
             Status = HolidayRequestStatus.Pending;
+        }
+
+        private void SaveInStorage()
+        {
+            // (?) Or not...?
+            // Locate IStorage, call storage.Add(this) or so.
         }
 
         private void InformManagerAboutSubmission()
