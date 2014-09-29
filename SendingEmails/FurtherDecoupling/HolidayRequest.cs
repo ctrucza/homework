@@ -1,5 +1,4 @@
-﻿using System.Net.Mail;
-using FurtherDecoupling.Emails;
+﻿using FurtherDecoupling.Emails;
 
 namespace FurtherDecoupling
 {
@@ -33,13 +32,16 @@ namespace FurtherDecoupling
 
         private void InformManagerAboutSubmission()
         {
-            var from = employee.EmailAddress;
-            var to = manager.EmailAddress;
             var subject = "Please :)";
-            var body = string.Format("Some info: {0}", periodOfTime);
-            
-            var email = new Email(from, to, subject, body);
+            var body = CreateSubmissionBody();
+
+            var email = new Email(employee.EmailAddress, manager.EmailAddress, subject, body);
             email.Send();
+        }
+
+        private string CreateSubmissionBody()
+        {
+            return string.Format("Some info: {0}", periodOfTime);
         }
 
         public void Approve()
@@ -50,13 +52,16 @@ namespace FurtherDecoupling
 
         private void SendApproval()
         {
-            var from = manager.EmailAddress;
-            var to = Configuration.EmailAddressOfHumanResources;
             var subject = "Yee :)";
-            var body = string.Format("Some info: {0}, {1}", employee, periodOfTime);
+            var body = CreateApprovalBody();
 
-            var email = new Email(from, to, subject, body);
+            var email = new Email(manager.EmailAddress, Configuration.EmailAddressOfHumanResources, subject, body);
             email.Send();
+        }
+
+        private string CreateApprovalBody()
+        {
+            return string.Format("Some info: {0}, {1}", employee, periodOfTime);
         }
 
         public void Reject(string reason)
@@ -67,12 +72,10 @@ namespace FurtherDecoupling
 
         private void SendRefusal(string reason)
         {
-            var from = manager.EmailAddress;
-            var to = employee.EmailAddress;
             var subject = "Nope :(";
             var body = reason;
 
-            var email = new Email(from, to, subject, body);
+            var email = new Email(manager.EmailAddress, employee.EmailAddress, subject, body);
             email.Send();
         }
     }
