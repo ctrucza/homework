@@ -27,11 +27,11 @@ namespace FurtherDecoupling
 
         public void SubmitForApproval()
         {
-            AnnounceManagerAboutSubmission();
+            InformManagerAboutSubmission();
             Status = HolidayRequestStatus.Pending;
         }
 
-        private void AnnounceManagerAboutSubmission()
+        private void InformManagerAboutSubmission()
         {
             var from = employee.EmailAddress;
             var to = manager.EmailAddress;
