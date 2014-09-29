@@ -16,11 +16,13 @@ namespace FurtherDecoupling
     // (depending on what project the employee currently works on)
     public class HolidayRequest
     {
+        private readonly Manager manager;
         private readonly Employee employee;
         private readonly PeriodOfTime periodOfTime;
 
-        public HolidayRequest(Employee employee, PeriodOfTime periodOfTime, HolidayRequestStatus status)
+        public HolidayRequest(Manager manager, Employee employee, PeriodOfTime periodOfTime, HolidayRequestStatus status)
         {
+            this.manager = manager;
             this.employee = employee;
             this.periodOfTime = periodOfTime;
             Status = status;

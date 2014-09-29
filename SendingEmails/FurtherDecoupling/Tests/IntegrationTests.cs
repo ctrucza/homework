@@ -24,10 +24,14 @@ namespace FurtherDecoupling.Tests
         [Test]
         public void IsApprovalCorrectlyCommunicated()
         {
+            var managerAddress = new MailAddress("test@test.org");
+            var manager = new Manager(managerAddress);
+
             var employeeAddress = new MailAddress("test@test.com");
             var employee = new Employee(employeeAddress);
+
             var periodOfTime = new PeriodOfTime();
-            var holidayRequest = new HolidayRequest(employee, periodOfTime, HolidayRequestStatus.Pending);
+            var holidayRequest = new HolidayRequest(manager, employee, periodOfTime, HolidayRequestStatus.Pending);
             
             holidayRequest.Approve();
 
@@ -38,10 +42,14 @@ namespace FurtherDecoupling.Tests
         [Test]
         public void IsRejectionCorrectlyCommunicated()
         {
+            var managerAddress = new MailAddress("test@test.org");
+            var manager = new Manager(managerAddress);
+
             var employeeAddress = new MailAddress("test@test.com");
             var employee = new Employee(employeeAddress);
+
             var periodOfTime = new PeriodOfTime();
-            var holidayRequest = new HolidayRequest(employee, periodOfTime, HolidayRequestStatus.Pending);
+            var holidayRequest = new HolidayRequest(manager, employee, periodOfTime, HolidayRequestStatus.Pending);
             
             const string Reason = "Foo";
             holidayRequest.Reject(Reason);
