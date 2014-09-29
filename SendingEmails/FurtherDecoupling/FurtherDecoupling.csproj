@@ -51,5 +51,6 @@
     <Compile Include="Emails\EmailServer.cs" />
     <Compile Include="Tests\IntegrationTests.cs" />
     <Compile Include="Emails\Email.cs" />
+    <Compile Include="Manager.cs" />
   </ItemGroup>
 </Project>
