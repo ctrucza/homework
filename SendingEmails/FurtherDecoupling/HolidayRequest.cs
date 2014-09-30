@@ -1,4 +1,5 @@
 ﻿using FurtherDecoupling.Emails;
+using System.Net.Mail;
 
 namespace FurtherDecoupling
 {
@@ -39,19 +40,21 @@ namespace FurtherDecoupling
 
         private void InformManagerAboutSubmission()
         {
-            // take a look at this and the other two email-sending methods
-            // they look much alike.
-            // What would andreib do?
             var subject = "Please :)";
             var body = CreateSubmissionBody();
 
-            var email = new Email(employee.EmailAddress, manager.EmailAddress, subject, body);
-            email.Send();
+            SendEmail(employee.EmailAddress, manager.EmailAddress, subject, body);
         }
 
         private string CreateSubmissionBody()
         {
             return string.Format("Some info: {0}", periodOfTime);
+        }
+
+        private void SendEmail(MailAddress from, MailAddress to, string subject, string body)
+        {
+            var email = new Email(from, to, subject, body);
+            email.Send();
         }
 
         public void Approve()
@@ -65,8 +68,7 @@ namespace FurtherDecoupling
             var subject = "Yee :)";
             var body = CreateApprovalBody();
 
-            var email = new Email(manager.EmailAddress, Configuration.EmailAddressOfHumanResources, subject, body);
-            email.Send();
+            SendEmail(manager.EmailAddress, Configuration.EmailAddressOfHumanResources, subject, body);
         }
 
         private string CreateApprovalBody()
@@ -85,8 +87,7 @@ namespace FurtherDecoupling
             var subject = "Nope :(";
             var body = reason;
 
-            var email = new Email(manager.EmailAddress, employee.EmailAddress, subject, body);
-            email.Send();
+            SendEmail(manager.EmailAddress, employee.EmailAddress, subject, body);
         }
     }
 }
