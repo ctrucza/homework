@@ -39,9 +39,6 @@ namespace FurtherDecoupling
 
         private void InformManagerAboutSubmission()
         {
-            // take a look at this and the other two email-sending methods
-            // they look much alike.
-            // What would andreib do?
             var subject = "Please :)";
             var body = CreateSubmissionBody();
 
