@@ -21,7 +21,23 @@ namespace FurtherDecoupling.Tests
             EmailServerLocator.Instance = emailServerMock;
         }
 
+        // General comment on these test names:
+        // Naming is hard. Naming unit tests is hard and controversial.
+        // I like my test names to be a little bit more explicit about what they test.
         [Test]
+        // I'd call it:
+        //      email_is_sent_to_manager_on_submission
+        // but this test checks two different things:
+        //      that on submission the status is Pending
+        //      and that a mail is sent to the manager
+        //
+        // Maybe breaking up into two tests?
+        //      submission_sends_mail_to_manager
+        //      submission_marks_the_request_as_pending
+        // (and put it in HolidayRequestTests)
+        //
+        //  Checking two different things opens up some design questions too:
+        //      what is the status of a request before submission?
         public void CanCorrectlySubmitARequest()
         {
             var manager = new Manager(managerAddress);
@@ -38,6 +54,9 @@ namespace FurtherDecoupling.Tests
         }
 
         [Test]
+        // same two-check problem
+        //      approval_send_mail_to_hr
+        //      approval_marks_the_request_as_approved
         public void IsApprovalCorrectlyCommunicated()
         {
             var manager = new Manager(managerAddress);
@@ -55,6 +74,8 @@ namespace FurtherDecoupling.Tests
         }
 
         [Test]
+        // same two-checks
+        //  rejection_sends_mail_to_employee
         public void IsRejectionCorrectlyCommunicated()
         {
             var manager = new Manager(managerAddress);
