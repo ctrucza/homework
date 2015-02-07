@@ -16,7 +16,7 @@ namespace IOU
             Human human = ChooseWisely(humans.ToArray());
             //human.WriteToStdout();
 
-            // TODO: WriteToConsole()? PickFromConsole()? Write comment. high cohesion, buy annoying coupling? or not
+            //TODO: WriteToConsole()? PickFromConsole()? Write comment. high cohesion, buy annoying coupling? or not
             //TODO: BunchOfHumans.FindByName() // PickFromStd;
 
             Console.WriteLine("Test");
