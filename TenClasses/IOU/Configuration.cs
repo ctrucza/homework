@@ -5,22 +5,22 @@ namespace IOU
 {
     public static class Configuration
     {
-        static Configuration()
+        public static string GetEmailAddress()
         {
-            EmailAddress = GetValue("EmailAddress");
+            string value = GetValue("EmailAddress");
 
-            if (string.IsNullOrEmpty(EmailAddress))
+            if (string.IsNullOrEmpty(value))
             {
                 throw new IncompleteConfigurationException();
             }
+
+            return value;
         }
 
         private static string GetValue(string key)
         {
             return ConfigurationManager.AppSettings[key];
         }
-
-        public static string EmailAddress { get; private set; }
 
         public class IncompleteConfigurationException : Exception
         {

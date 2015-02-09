@@ -7,8 +7,6 @@ namespace IOU.Exchange
 {
     public class ExchangePeopleFacade : IPeopleFacade
     {
-        readonly string myAddress = Configuration.EmailAddress;
-
         public BunchOfPeople FindByName(string name)
         {
             ExchangeService exchangeService = ExchangeServicesLocator.GetExchangeService();
@@ -28,7 +26,12 @@ namespace IOU.Exchange
 
         public Person GetMe()
         {
-            return new Person(GetMyDisplayName(), myAddress);
+            return new Person(GetMyDisplayName(), GetMyAddress());
+        }
+
+        private string GetMyAddress()
+        {
+            return Configuration.GetEmailAddress();
         }
 
         private string GetMyDisplayName()
@@ -36,7 +39,7 @@ namespace IOU.Exchange
             const UserSettingName Key = UserSettingName.UserDisplayName;
 
             AutodiscoverService autodiscoverService = ExchangeServicesLocator.GetAutodiscoverService();
-            GetUserSettingsResponse response = autodiscoverService.GetUserSettings(myAddress, Key);
+            GetUserSettingsResponse response = autodiscoverService.GetUserSettings(GetMyAddress(), Key);
             return response.Settings[Key].ToString();
         }
     }

@@ -22,7 +22,7 @@ namespace IOU.Exchange
         private static ExchangeService CreateExchangeService()
         {
             var service = new ExchangeService(Version) { UseDefaultCredentials = true };
-            service.AutodiscoverUrl(Configuration.EmailAddress);
+            service.AutodiscoverUrl(Configuration.GetEmailAddress());
             return service;
         }
 
