@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Net;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace IOU
 {
@@ -9,8 +6,6 @@ namespace IOU
     {
         static void Main(string[] args)
         {
-            DisableCertificateValidation();
-
             Person me = Person.GetMe();
             me.Greet();
 
@@ -42,11 +37,6 @@ namespace IOU
 
             int no = Convert.ToInt32(Console.ReadLine());
             return humans [no];
-        }
-
-        static void DisableCertificateValidation()
-        {
-            ServicePointManager.ServerCertificateValidationCallback = (sender, cert, chain, errors) => true;
         }
     }
 }
