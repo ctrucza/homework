@@ -11,8 +11,7 @@ namespace IOU
 
         public string GetNameOfWhoMadeYourDay()
         {
-            Console.WriteLine("Who made your day?");
-            Console.WriteLine("Enter name:");
+            Console.WriteLine("Who made your day? Enter name:");
             return Console.ReadLine();
         }
 
@@ -27,7 +26,7 @@ namespace IOU
 
         public int GetIndexOfSelectedPerson()
         {
-            Console.WriteLine("Write index:");
+            Console.WriteLine("Enter index:");
             return Convert.ToInt32(Console.ReadLine());
         }
     }
