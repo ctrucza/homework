@@ -11,7 +11,7 @@ namespace IOU
 
             if (string.IsNullOrEmpty(value))
             {
-                throw new IncompleteConfigurationException();
+                throw new BadConfigurationException();
             }
 
             return value;
@@ -21,13 +21,13 @@ namespace IOU
         {
             return ConfigurationManager.AppSettings[key];
         }
+    }
 
-        public class IncompleteConfigurationException : Exception
+    public class BadConfigurationException : Exception
+    {
+        public BadConfigurationException()
+            : base(":( Bad configuration!")
         {
-            public IncompleteConfigurationException()
-                : base(":( Incomplete configuration!")
-            {
-            }
         }
     }
 }
