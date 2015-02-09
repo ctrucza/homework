@@ -15,7 +15,7 @@ namespace IOU.Exchange
         static ExchangeService CreateService()
         {
             var service = new ExchangeService(ExchangeVersion.Exchange2010_SP2);
-            service.Url = new Uri(Configuration.EwsUrl);
+            service.AutodiscoverUrl(Configuration.EmailAddress);
             service.UseDefaultCredentials = true;
             return service;
         }

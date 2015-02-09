@@ -26,7 +26,8 @@ namespace IOU
 
         static Human GetMe()
         {
-            return new Human(Configuration.Name, Configuration.EmailAddress);
+            return null;
+            //return new Human(Configuration.Name, Configuration.EmailAddress);
         }
 
         public override string ToString()

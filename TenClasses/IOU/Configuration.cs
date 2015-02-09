@@ -7,9 +7,7 @@ namespace IOU
     {
         static Configuration()
         {
-            Name = GetValue("Name");
             EmailAddress = GetValue("EmailAddress");
-            EwsUrl = GetValue("EwsUrl");
         }
 
         static string GetValue(string key)
@@ -30,11 +28,7 @@ namespace IOU
             Environment.Exit(-1);
         }
 
-        public static string Name { get; private set; } 
-
         public static string EmailAddress { get; private set; }
-
-        public static string EwsUrl { get; private set; }
     }
 }
 
