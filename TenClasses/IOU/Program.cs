@@ -4,24 +4,14 @@ namespace IOU
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Person me = Person.GetMe();
             me.Greet();
+            Person person = me.WhoMadeYourDay();
+            person.YouMadeMyDay();
 
-            string name = WhoMadeYourDay();
-            BunchOfPeople people = BunchOfPeople.FindByName(name);
-            Person person = people.PickPerson();
-           
-            Console.WriteLine(person);
             Console.ReadLine();
-        }
-
-        static string WhoMadeYourDay()
-        {
-            Console.WriteLine("Who made your day?");
-            string name = Console.ReadLine();
-            return name;
         }
     }
 }

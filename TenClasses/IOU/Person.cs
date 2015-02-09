@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace IOU
+﻿namespace IOU
 {
     public class Person
     {
@@ -16,13 +14,20 @@ namespace IOU
 
         public static Person GetMe()
         {
-            IPeopleFacade storage = ServiceLocator.PeopleFacade;
-            return storage.GetMe();
+            return ServiceLocator.PeopleFacade.GetMe();
         }
 
         public void Greet()
         {
-            Console.WriteLine("Hi, {0}!", name);
+            ServiceLocator.Presenter.SayHi(name);
+        }
+
+        public Person WhoMadeYourDay()
+        {
+            string searchName = ServiceLocator.Presenter.GetNameOfWhoMadeYourDay();
+
+            BunchOfPeople people = BunchOfPeople.FindByName(searchName);
+            return people.PickPerson();
         }
 
         public void YouMadeMyDay()

@@ -1,37 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 
 namespace IOU
 {
-    public class BunchOfPeople
+    public class BunchOfPeople : List<Person>
     {
-        private readonly Person[] people;
-
         public BunchOfPeople(IEnumerable<Person> people)
+            : base(people)
         {
-            this.people = people.ToArray();
         }
 
         public static BunchOfPeople FindByName(string name)
         {
-            IPeopleFacade storage = ServiceLocator.PeopleFacade;
-            return storage.FindByName(name);
+            return ServiceLocator.PeopleFacade.FindByName(name);
         }
 
-        /// <summary>
-        /// High cohesion, but... annoying coupling?
-        /// </summary>
         public Person PickPerson()
         {
-            for (int i = 0; i < people.Length; i++)
-            {
-                Console.Write(i + ".\t");
-                Console.WriteLine(people[i]);
-            }
+            IPresenter presenter = ServiceLocator.Presenter;
+            presenter.DisplayPeople(this);
 
-            int index = Convert.ToInt32(Console.ReadLine());
-            return people[index];
+            int index = presenter.GetIndexOfSelectedPerson();
+            return this[index];
         }
     }
 }
