@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace IOU
+﻿namespace IOU
 {
     class Program
     {
@@ -10,8 +8,6 @@ namespace IOU
             me.Greet();
             Person person = me.WhoMadeYourDay();
             person.YouMadeMyDay();
-
-            Console.ReadLine();
         }
     }
 }
