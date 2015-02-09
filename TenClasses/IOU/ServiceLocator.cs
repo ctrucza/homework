@@ -4,7 +4,7 @@ namespace IOU
 {
     public static class ServiceLocator
     {
-        public static IPeopleFacade HumansStorage = new ExchangePeopleFacade();
+        public static IPeopleFacade PeopleFacade = new ExchangePeopleFacade();
 
         // TODO: Add EmailServer
         // TODO: Add EventsStorage

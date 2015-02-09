@@ -14,12 +14,6 @@ namespace IOU
             this.emailAddress = emailAddress;
         }
 
-        public static IEnumerable<Person> FindByName(string name)
-        {
-            IPeopleFacade storage = ServiceLocator.HumansStorage;
-            return storage.FindByName(name);
-        }
-
         public void YouMadeMyDay()
         {
         }

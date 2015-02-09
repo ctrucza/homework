@@ -1,11 +1,8 @@
-﻿using System.Collections.Generic;
-
-
-namespace IOU
+﻿namespace IOU
 {
     public interface IPeopleFacade
     {
-        IEnumerable<Person> FindByName(string name);
+        BunchOfPeople FindByName(string name);
     }
 }
 

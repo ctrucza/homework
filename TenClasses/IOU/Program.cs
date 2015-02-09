@@ -12,8 +12,8 @@ namespace IOU
             DisableCertificateValidation();
 
             string name = WhoMadeYourDay();
-            IEnumerable<Person> humans = Person.FindByName(name);
-            Person human = ChooseWisely(humans.ToArray());
+            BunchOfPeople humans = BunchOfPeople.FindByName(name);
+            //Person human = ChooseWisely(humans.ToArray());
             //human.WriteToStdout();
 
             //TODO: WriteToConsole()? PickFromConsole()? Write comment. high cohesion, buy annoying coupling? or not

@@ -8,11 +8,11 @@ namespace IOU.Exchange
     {
         readonly ExchangeService service = ExchangeServiceLocator.Get();
 
-        public IEnumerable<Person> FindByName(string name)
+        public BunchOfPeople FindByName(string name)
         {
             NameResolutionCollection resolutions = service.ResolveName(name);
-            IEnumerable<Person> humans = resolutions.Select(CreatePerson);
-            return humans.ToArray();
+            IEnumerable<Person> people = resolutions.Select(CreatePerson);
+            return new BunchOfPeople(people);
         }
 
         static Person CreatePerson(NameResolution nameResolution)
