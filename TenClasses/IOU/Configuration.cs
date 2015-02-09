@@ -8,24 +8,16 @@ namespace IOU
         static Configuration()
         {
             EmailAddress = GetValue("EmailAddress");
+
+            if (string.IsNullOrEmpty(EmailAddress))
+            {
+                Environment.Exit(-1);
+            }
         }
 
         static string GetValue(string key)
         {
-            string value = ConfigurationManager.AppSettings [key];
-
-            if (value == null)
-            {
-                ComplainAndStop(key);
-            }
-
-            return value;
-        }
-
-        static void ComplainAndStop(string key)
-        {
-            Console.WriteLine("Configuration entry '{0}' is missing.", key);
-            Environment.Exit(-1);
+            return ConfigurationManager.AppSettings [key];
         }
 
         public static string EmailAddress { get; private set; }
