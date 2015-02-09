@@ -7,14 +7,11 @@ namespace IOU.Exchange
 {
     public class ExchangePeopleFacade : IPeopleFacade
     {
-        readonly ExchangeService exchangeService = ExchangeServicesLocator.GetExchangeService();
-
-        readonly AutodiscoverService autodiscoverService = ExchangeServicesLocator.GetAutodiscoverService();
-
         readonly string myAddress = Configuration.EmailAddress;
 
         public BunchOfPeople FindByName(string name)
         {
+            ExchangeService exchangeService = ExchangeServicesLocator.GetExchangeService();
             NameResolutionCollection resolutions = exchangeService.ResolveName(name);
             IEnumerable<Person> people = resolutions.Select(CreatePerson);
 
@@ -38,6 +35,7 @@ namespace IOU.Exchange
         {
             const UserSettingName Key = UserSettingName.UserDisplayName;
 
+            AutodiscoverService autodiscoverService = ExchangeServicesLocator.GetAutodiscoverService();
             GetUserSettingsResponse response = autodiscoverService.GetUserSettings(myAddress, Key);
             return response.Settings[Key].ToString();
         }

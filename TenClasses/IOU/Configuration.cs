@@ -11,16 +11,23 @@ namespace IOU
 
             if (string.IsNullOrEmpty(EmailAddress))
             {
-                Environment.Exit(-1);
+                throw new IncompleteConfigurationException();
             }
         }
 
-        static string GetValue(string key)
+        private static string GetValue(string key)
         {
-            return ConfigurationManager.AppSettings [key];
+            return ConfigurationManager.AppSettings[key];
         }
 
         public static string EmailAddress { get; private set; }
+
+        public class IncompleteConfigurationException : Exception
+        {
+            public IncompleteConfigurationException()
+                : base(":( Incomplete configuration!")
+            {
+            }
+        }
     }
 }
-

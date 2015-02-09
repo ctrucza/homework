@@ -33,16 +33,28 @@
         public void YouMadeMyDay()
         {
             SendMail();
+            // TODO: Also save event in DB
         }
 
         private void SendMail()
         {
-            const string Subject = "You've made my day!";
-            string body = string.Format("Thanks, {0}, you've made my day! I owe you a beer!", name);
+            string to = emailAddress;
+            string subject = GetEmailSubject();
+            string body = GetEmailBody();
 
-            ServiceLocator.MailServer.SendMail(emailAddress, Subject, body);
+            ServiceLocator.MailServer.SendMail(to, subject, body);
         }
-        
+
+        private static string GetEmailSubject()
+        {
+            return "You've made my day!";
+        }
+
+        private string GetEmailBody()
+        {
+            return string.Format("Thanks, {0}, you've made my day! I owe you a beer!", name);
+        }
+
         public override string ToString()
         {
             return string.Format("{0} [{1}]", name, emailAddress);

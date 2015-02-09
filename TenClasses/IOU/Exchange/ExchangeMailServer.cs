@@ -13,8 +13,12 @@ namespace IOU.Exchange
         private static EmailMessage CreateMessage(string to, string subject, string body)
         {
             ExchangeService service = ExchangeServicesLocator.GetExchangeService();
-            EmailMessage message = new EmailMessage(service) { Subject = subject, Body = body };
+            
+            EmailMessage message = new EmailMessage(service);
             message.ToRecipients.Add(to);
+            message.Subject = subject;
+            message.Body = body;
+
             return message;
         }
     }
