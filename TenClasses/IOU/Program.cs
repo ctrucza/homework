@@ -11,6 +11,9 @@ namespace IOU
         {
             DisableCertificateValidation();
 
+            Person me = Person.GetMe();
+            me.Greet();
+
             string name = WhoMadeYourDay();
             BunchOfPeople humans = BunchOfPeople.FindByName(name);
             //Person human = ChooseWisely(humans.ToArray());

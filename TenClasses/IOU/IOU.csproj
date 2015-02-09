@@ -61,7 +61,7 @@
     <Compile Include="Configuration.cs" />
     <Compile Include="IPeopleFacade.cs" />
     <Compile Include="Exchange\ExchangePeopleFacade.cs" />
-    <Compile Include="Exchange\ExchangeServiceLocator.cs" />
+    <Compile Include="Exchange\ExchangeServicesLocator.cs" />
     <Compile Include="ServiceLocator.cs" />
   </ItemGroup>
   <ItemGroup>

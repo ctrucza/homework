@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
 
 namespace IOU
 {
     public class Person
     {
-        readonly string name;
+        private readonly string name;
 
-        readonly string emailAddress;
+        private readonly string emailAddress;
 
         public Person(string name, string emailAddress)
         {
@@ -14,20 +14,24 @@ namespace IOU
             this.emailAddress = emailAddress;
         }
 
+        public static Person GetMe()
+        {
+            IPeopleFacade storage = ServiceLocator.PeopleFacade;
+            return storage.GetMe();
+        }
+
+        public void Greet()
+        {
+            Console.WriteLine("Hi, {0}!", name);
+        }
+
         public void YouMadeMyDay()
         {
         }
-
-        static Person GetMe()
-        {
-            return null;
-            //return new Human(Configuration.Name, Configuration.EmailAddress);
-        }
-
+        
         public override string ToString()
         {
             return string.Format("{0} [{1}]", name, emailAddress);
         }
     }
 }
-
