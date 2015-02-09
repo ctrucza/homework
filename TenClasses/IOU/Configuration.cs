@@ -10,8 +10,6 @@ namespace IOU
             Name = GetValue("Name");
             EmailAddress = GetValue("EmailAddress");
             EwsUrl = GetValue("EwsUrl");
-            Username = GetValue("Username");
-            Password = GetValue("Password");
         }
 
         static string GetValue(string key)
@@ -37,10 +35,6 @@ namespace IOU
         public static string EmailAddress { get; private set; }
 
         public static string EwsUrl { get; private set; }
-
-        public static string Username { get; private set; }
-
-        public static string Password { get; private set; }
     }
 }
 

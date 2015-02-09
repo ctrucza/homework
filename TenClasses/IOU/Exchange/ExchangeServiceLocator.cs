@@ -16,7 +16,7 @@ namespace IOU.Exchange
         {
             var service = new ExchangeService(ExchangeVersion.Exchange2010_SP2);
             service.Url = new Uri(Configuration.EwsUrl);
-            service.Credentials = new WebCredentials(Configuration.Username, Configuration.Password);
+            service.UseDefaultCredentials = true;
             return service;
         }
 
