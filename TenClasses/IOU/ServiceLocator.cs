@@ -6,9 +6,10 @@ namespace IOU
     {
         public static IPeopleFacade PeopleFacade = new ExchangePeopleFacade();
 
+        public static IMailServer MailServer = new ExchangeMailServer();
+
         public static IPresenter Presenter = new Presenter();
 
-        // TODO: Add EmailServer
         // TODO: Add EventsStorage
     }
 }

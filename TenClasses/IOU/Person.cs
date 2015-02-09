@@ -32,7 +32,15 @@
 
         public void YouMadeMyDay()
         {
+            SendMail();
+        }
 
+        private void SendMail()
+        {
+            const string Subject = "You've made my day!";
+            string body = string.Format("Thanks, {0}, you've made my day! I owe you a beer", name);
+
+            ServiceLocator.MailServer.SendMail(emailAddress, Subject, body);
         }
         
         public override string ToString()
