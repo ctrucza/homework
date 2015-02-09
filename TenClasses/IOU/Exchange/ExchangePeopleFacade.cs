@@ -11,6 +11,8 @@ namespace IOU.Exchange
 
         readonly AutodiscoverService autodiscoverService = ExchangeServicesLocator.GetAutodiscoverService();
 
+        readonly string myAddress = Configuration.EmailAddress;
+
         public BunchOfPeople FindByName(string name)
         {
             NameResolutionCollection resolutions = exchangeService.ResolveName(name);
@@ -29,11 +31,15 @@ namespace IOU.Exchange
 
         public Person GetMe()
         {
-            string address = Configuration.EmailAddress;
-            GetUserSettingsResponse response = autodiscoverService.GetUserSettings(address, UserSettingName.UserDisplayName);
-            string name = response.Settings[UserSettingName.UserDisplayName].ToString();
+            return new Person(GetMyDisplayName(), myAddress);
+        }
 
-            return new Person(name, address);
+        private string GetMyDisplayName()
+        {
+            const UserSettingName Key = UserSettingName.UserDisplayName;
+
+            GetUserSettingsResponse response = autodiscoverService.GetUserSettings(myAddress, Key);
+            return response.Settings[Key].ToString();
         }
     }
 }
