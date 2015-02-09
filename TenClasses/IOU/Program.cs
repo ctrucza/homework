@@ -12,8 +12,8 @@ namespace IOU
             DisableCertificateValidation();
 
             string name = WhoMadeYourDay();
-            IEnumerable<Human> humans = Human.FindByName(name);
-            Human human = ChooseWisely(humans.ToArray());
+            IEnumerable<Person> humans = Person.FindByName(name);
+            Person human = ChooseWisely(humans.ToArray());
             //human.WriteToStdout();
 
             //TODO: WriteToConsole()? PickFromConsole()? Write comment. high cohesion, buy annoying coupling? or not
@@ -29,7 +29,7 @@ namespace IOU
             return name;
         }
 
-        static Human ChooseWisely(Human[] humans)
+        static Person ChooseWisely(Person[] humans)
         {
             for (int i = 0; i < humans.Length; i++)
             {

@@ -4,23 +4,23 @@ using System.Collections.Generic;
 
 namespace IOU.Exchange
 {
-    public class ExchangeHumansStorage : IHumansStorage
+    public class ExchangePeopleFacade : IPeopleFacade
     {
-        ExchangeService service = ExchangeServiceLocator.Get();
+        readonly ExchangeService service = ExchangeServiceLocator.Get();
 
-        public IEnumerable<Human> FindByName(string name)
+        public IEnumerable<Person> FindByName(string name)
         {
             NameResolutionCollection resolutions = service.ResolveName(name);
-            IEnumerable<Human> humans = resolutions.Select(ConvertToHuman);
+            IEnumerable<Person> humans = resolutions.Select(CreatePerson);
             return humans.ToArray();
         }
 
-        static Human ConvertToHuman(NameResolution nameResolution)
+        static Person CreatePerson(NameResolution nameResolution)
         {
             string name = nameResolution.Mailbox.Name;
             string emailAddress = nameResolution.Mailbox.Address;
 
-            return new Human(name, emailAddress);
+            return new Person(name, emailAddress);
         }
     }
 }

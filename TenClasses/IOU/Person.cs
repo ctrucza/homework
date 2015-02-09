@@ -2,21 +2,21 @@
 
 namespace IOU
 {
-    public class Human
+    public class Person
     {
         readonly string name;
 
         readonly string emailAddress;
 
-        public Human(string name, string emailAddress)
+        public Person(string name, string emailAddress)
         {
             this.name = name;
             this.emailAddress = emailAddress;
         }
 
-        public static IEnumerable<Human> FindByName(string name)
+        public static IEnumerable<Person> FindByName(string name)
         {
-            IHumansStorage storage = ServiceLocator.HumansStorage;
+            IPeopleFacade storage = ServiceLocator.HumansStorage;
             return storage.FindByName(name);
         }
 
@@ -24,7 +24,7 @@ namespace IOU
         {
         }
 
-        static Human GetMe()
+        static Person GetMe()
         {
             return null;
             //return new Human(Configuration.Name, Configuration.EmailAddress);
